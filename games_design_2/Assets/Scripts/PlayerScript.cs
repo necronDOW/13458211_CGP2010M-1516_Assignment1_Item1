@@ -7,6 +7,7 @@ public class PlayerScript : MonoBehaviour
     public float speed = 3.0f;
     public float turnSpeed = 0.5f;
     public float jumpForce = 1.0f;
+    public bool portals = true;
 
     private Vector3 lastMousePos;
     private GameObject obj = null;
@@ -58,13 +59,17 @@ public class PlayerScript : MonoBehaviour
             }
             else SetPickup(null);
         }
-        else if (Input.GetMouseButtonDown(2))
-            FirePortal();
 
-        if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+        if (portals)
         {
-            currentPortal = currentPortal == 0 ? 1 : 0;
-            reticleImg.color = portalColors[currentPortal];
+            if (Input.GetMouseButtonDown(2))
+                FirePortal();
+
+            if (Input.GetAxis("Mouse ScrollWheel") != 0f)
+            {
+                currentPortal = currentPortal == 0 ? 1 : 0;
+                reticleImg.color = portalColors[currentPortal];
+            }
         }
 
         lastMousePos = Input.mousePosition;
@@ -138,9 +143,12 @@ public class PlayerScript : MonoBehaviour
         }
         else
         {
-            obj.transform.parent = null;
-            objRigid.useGravity = true;
-            objRigid.isKinematic = false;
+            if (obj != null)
+            {
+                obj.transform.parent = null;
+                objRigid.useGravity = true;
+                objRigid.isKinematic = false;
+            }
         }
 
         obj = o;
