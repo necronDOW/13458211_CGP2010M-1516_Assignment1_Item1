@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Button Scripts\ORButtonScript.cs" />
      <Compile Include="Assets\Scripts\Button Scripts\XORButtonScript.cs" />
      <Compile Include="Assets\Scripts\DoorScript.cs" />
+     <Compile Include="Assets\Scripts\LevelScript.cs" />
      <Compile Include="Assets\Scripts\PlayerScript.cs" />
      <Compile Include="Assets\Scripts\PortalScript.cs" />
  <Reference Include="UnityEngine.UI">
