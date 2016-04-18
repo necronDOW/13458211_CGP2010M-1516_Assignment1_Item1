@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEditor;
+#if UNITY_EDITOR
+    using UnityEditor;
+#endif
 using System.Collections;
 
 public class PlayerScript : MonoBehaviour
@@ -43,7 +45,9 @@ public class PlayerScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+#if UNITY_EDITOR
             EditorApplication.isPlaying = false;
+#endif
             Application.Quit();
         }
 
