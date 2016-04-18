@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ORButtonScript : ButtonScript
 {
-    public GameObject target2;
+    public GameObject[] targets2;
 
     protected override void Start()
     {
@@ -19,7 +19,10 @@ public class ORButtonScript : ButtonScript
 
     protected override void SetTarget(bool value)
     {
-        target.GetComponent<DoorScript>().SetActive(value);
-        target2.GetComponent<DoorScript>().SetActive(!value);
+        for (int i = 0; i < targets.Length; i++)
+            targets[i].GetComponent<DoorScript>().SetActive(value);
+
+        for (int i = 0; i < targets.Length; i++)
+            targets2[i].GetComponent<DoorScript>().SetActive(!value);
     }
 }

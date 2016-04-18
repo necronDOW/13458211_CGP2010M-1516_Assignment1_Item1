@@ -15,7 +15,7 @@ public class ANDButtonScript : ButtonScript
         {
             linkedAbs = linked.GetComponent<ANDButtonScript>();
             linkedAbs.SetLinked(this);
-            linkedAbs.target = target;
+            linkedAbs.targets = targets;
         }
     }
 

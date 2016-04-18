@@ -68,11 +68,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BlockDispenser.cs" />
     <Compile Include="Assets\Scripts\Button Scripts\ANDButtonScript.cs" />
     <Compile Include="Assets\Scripts\Button Scripts\ButtonScript.cs" />
     <Compile Include="Assets\Scripts\Button Scripts\ORButtonScript.cs" />
     <Compile Include="Assets\Scripts\Button Scripts\XORButtonScript.cs" />
     <Compile Include="Assets\Scripts\DoorScript.cs" />
+    <Compile Include="Assets\Scripts\LaserScript.cs" />
+    <Compile Include="Assets\Scripts\LevelScript.cs" />
     <Compile Include="Assets\Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\PortalScript.cs" />
   </ItemGroup>

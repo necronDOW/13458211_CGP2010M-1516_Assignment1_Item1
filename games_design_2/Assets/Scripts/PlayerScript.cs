@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 using System.Collections;
 
 public class PlayerScript : MonoBehaviour
@@ -40,6 +41,12 @@ public class PlayerScript : MonoBehaviour
     
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            EditorApplication.isPlaying = false;
+            Application.Quit();
+        }
+
         if (Input.GetMouseButtonUp(0))
         {
             if (obj != null)
@@ -93,7 +100,7 @@ public class PlayerScript : MonoBehaviour
     void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.layer != LayerMask.GetMask("Boundaries"))
-            jumps = 2;
+            jumps = 1;
     }
 
     void Move(float h, float v)

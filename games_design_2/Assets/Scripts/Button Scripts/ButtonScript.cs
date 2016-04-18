@@ -4,7 +4,7 @@ using System.Collections;
 public class ButtonScript : MonoBehaviour
 {
     public bool active = false;
-    public GameObject target;
+    public GameObject[] targets;
 
     protected Animator anim;
 
@@ -31,7 +31,17 @@ public class ButtonScript : MonoBehaviour
 
     protected virtual void SetTarget(bool value)
     {
-        if (target != null)
-            target.GetComponent<DoorScript>().SetActive(value);
+        for (int i = 0; i < targets.Length; i++)
+        {
+            DoorScript ds = targets[i].GetComponent<DoorScript>();
+            if (ds != null)
+                ds.SetActive(value);
+            else
+            {
+                BlockDispenser bd = targets[i].GetComponent<BlockDispenser>();
+                if (bd != null && value)
+                    bd.Dispense();
+            }
+        }
     }
 }

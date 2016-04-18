@@ -15,7 +15,7 @@ public class XORButtonScript : ButtonScript
         {
             linkedAbs = linked.GetComponent<XORButtonScript>();
             linkedAbs.SetLinked(this);
-            linkedAbs.target = target;
+            linkedAbs.targets = targets;
         }
     }
 
